@@ -1,0 +1,353 @@
+/* RESET DE ESTILOS E VARIÁVEIS DE CORES */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: '-apple-system', BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+:root {
+    --bg-main: #0a090a;
+    --bg-card: #141214;
+    --bg-card-hover: #1c1a1c;
+    --brand-red: #e62222;
+    --brand-red-glow: rgba(230, 34, 34, 0.45);
+    --text-pure: #ffffff;
+    --text-muted: #a09ea1;
+    --whatsapp-green: #25d366;
+    --whatsapp-hover: #20ba5a;
+}
+
+body {
+    background-color: var(--bg-main);
+    color: var(--text-pure);
+    overflow-x: hidden;
+    min-height: 100vh;
+}
+
+/* LINHA DE LED SUPERIOR */
+.neon-line {
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, var(--brand-red), transparent);
+    position: absolute;
+    top: 75px;
+    z-index: 1;
+    box-shadow: 0 0 15px var(--brand-red);
+}
+
+/* HEADER STYLE */
+.main-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 35px;
+    position: relative;
+    z-index: 2;
+    margin-bottom: 50px;
+}
+
+.logo-wrapper {
+    width: 85px;
+    height: 85px;
+    background-color: var(--bg-main);
+    border: 2px solid var(--brand-red);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0 20px var(--brand-red-glow);
+    transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.logo-wrapper:hover {
+    transform: rotate(15deg) scale(1.05);
+}
+
+.brand-mascot {
+    font-size: 42px;
+}
+
+.brand-name {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-top: 15px;
+    letter-spacing: 0.5px;
+    color: #ffffff; /* Força o texto a ser puramente branco */
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5); /* Dá uma leve sombra para destacar */
+}
+
+.brand-badge {
+    font-size: 0.85rem;
+    color: var(--brand-red);
+    font-weight: 600;
+    margin-top: 8px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.brand-badge i {
+    font-size: 0.75rem;
+    margin: 0 4px;
+}
+
+/* GRID DE PRODUTOS */
+.catalog-container {
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 0 24px 60px 24px;
+}
+
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+    gap: 30px;
+}
+
+/* CARDS DA VITRINE */
+.product-card {
+    background-color: var(--bg-card);
+    border-radius: 14px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.3s ease;
+    border: 1px solid #1f1c1f;
+    display: flex;
+    flex-direction: column;
+}
+
+.product-card:hover {
+    transform: translateY(-6px);
+    background-color: var(--bg-card-hover);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.5), 0 0 15px rgba(230, 34, 34, 0.1);
+    border-color: rgba(230, 34, 34, 0.3);
+}
+
+.card-media-wrapper {
+    width: 100%;
+    height: 320px;
+    background-color: #121012;
+    position: relative;
+    overflow: hidden;
+}
+
+.card-media-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.product-card:hover .card-media-wrapper img {
+    transform: scale(1.04);
+}
+
+.card-info-footer {
+    padding: 18px 15px;
+    text-align: center;
+    font-size: 0.95rem;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    color: #e0dedf;
+    border-top: 1px solid #1a181a;
+    background-color: #0e0d0e;
+}
+
+/* MODAL DE DETALHES (GLASSMORPHISM EFFECT) */
+.product-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(4, 4, 4, 0.88);
+    z-index: 100;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+.modal-card {
+    background-color: var(--bg-card);
+    max-width: 950px;
+    width: 100%;
+    border-radius: 20px;
+    border: 1px solid rgba(230, 34, 34, 0.45);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7), 0 0 30px rgba(230, 34, 34, 0.15);
+    overflow: hidden;
+    position: relative;
+    animation: modalReveal 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+@keyframes modalReveal {
+    from { opacity: 0; transform: scale(0.93) translateY(10px); }
+    to { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+.modal-close-btn {
+    position: absolute;
+    top: 12px;
+    right: 18px;
+    font-size: 32px;
+    color: var(--text-muted);
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 10;
+    transition: color 0.2s;
+}
+
+.modal-close-btn:hover {
+    color: var(--brand-red);
+}
+
+.modal-layout {
+    display: flex;
+    flex-direction: column;
+}
+
+@media(min-width: 680px) {
+    .modal-layout {
+        flex-direction: row;
+    }
+}
+
+/* GALERIA INTERNA DO MODAL */
+.modal-preview-zone {
+    flex: 1.65;
+    background-color: #100e10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    padding: 15px;
+}
+
+@media(min-width: 680px) {
+    .modal-preview-zone {
+        border-bottom: none;
+        border-right: 1px solid #1a181a;
+    }
+}
+
+.featured-img {
+    width: auto;
+    height: 100%;
+    max-height: 500px;
+    object-fit: contain;
+    display: block;
+    border-radius: 8px;
+}
+
+.thumbnails-track {
+    display: flex;
+    gap: 8px;
+    padding: 10px;
+    background-color: #0b0a0b;
+    overflow-x: auto;
+}
+
+.thumb-item {
+    width: 52px;
+    height: 52px;
+    object-fit: cover;
+    cursor: pointer;
+    opacity: 0.4;
+    border-radius: 6px;
+    border: 1px solid transparent;
+    transition: all 0.2s ease;
+    flex-shrink: 0;
+}
+
+.thumb-item:hover, .thumb-item.active-thumb {
+    opacity: 1;
+    border-color: var(--brand-red);
+    transform: scale(1.02);
+}
+
+/* CONTEÚDO TEXTUAL DO MODAL */
+.modal-details-zone {
+    flex: 1;
+    padding: 35px 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: #141214;
+}
+
+.details-title {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--text-pure);
+    line-height: 1.2;
+}
+
+.details-divider {
+    width: 40px;
+    height: 3px;
+    background-color: var(--brand-red);
+    margin: 15px 0;
+    border-radius: 2px;
+}
+
+.details-description {
+    color: var(--text-muted);
+    color: var(--text-muted);
+    font-size: 0.92rem;
+    line-height: 1.6;
+}
+
+/* BOTAO PREMIUM DO WHATSAPP */
+.cta-whatsapp-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--whatsapp-green);
+    color: var(--text-pure);
+    text-decoration: none;
+    padding: 14px 20px;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 0.95rem;
+    letter-spacing: 0.3px;
+    transition: background-color 0.2s, transform 0.2s, box-shadow 0.2s;
+    gap: 10px;
+    margin-top: 30px;
+    box-shadow: 0 4px 12px rgba(37, 211, 102, 0.2);
+}
+
+.cta-whatsapp-btn:hover {
+    background-color: var(--whatsapp-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.35);
+}
+
+.cta-whatsapp-btn i {
+    font-size: 1.2rem;
+}
+
+/* Garante que o contêiner da logo não corte o círculo */
+.logo-wrapper {
+    width: 90px;
+    height: 90px;
+    background-color: var(--bg-main);
+    border: 2px solid var(--brand-red);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0 20px var(--brand-red-glow);
+    transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    overflow: hidden; /* Corta as bordas azuis da imagem original para ficar 100% redonda */
+}
+
+/* Nova classe para estilizar a imagem da logo interna */
+.brand-logo-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Faz a logo preencher o círculo simetricamente */
+}

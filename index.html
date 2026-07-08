@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TAKO FIG. MAKER | Vitrine Oficial</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="shortcut icon" href="imagens/Logo/favicon.ico" type="image/x-icon">
+</head>
+<body>
+
+    <div class="neon-line"></div>
+
+    <header class="main-header">
+        <div class="logo-wrapper">
+            <img src="imagens/Logo/logo.jpg" alt="Logo Tako Fig. Maker" class="brand-logo-img">
+        </div>
+        <h1 class="brand-name">@takofig.maker01</h1>
+        <p class="brand-badge"><i class="fa-solid fa-bolt"></i> Vitrine de Peças Prontas a Entrega <i class="fa-solid fa-bolt"></i></p>
+    </header>
+
+    <main class="catalog-container">
+        <div class="products-grid" id="catalog-grid">
+            </div>
+    </main>
+
+    <div class="product-modal" id="details-modal">
+        <div class="modal-card">
+            <button class="modal-close-btn" id="close-modal-btn" aria-label="Fechar">&times;</button>
+            <div class="modal-layout">
+                <div class="modal-preview-zone">
+                    <img id="main-preview-img" class="featured-img" src="" alt="Visualização do Colecionável">
+                    <div class="thumbnails-track" id="images-thumbnails-track">
+                        </div>
+                </div>
+                <div class="modal-details-zone">
+                    <div class="details-text-wrapper">
+                        <h2 class="details-title" id="info-title">Nome do Produto</h2>
+                        <div class="details-divider"></div>
+                        <p class="details-description" id="info-description">Descrição detalhada do colecionável.</p>
+                    </div>
+                    <a href="#" id="whatsapp-order-link" target="_blank" class="cta-whatsapp-btn">
+                        <i class="fa-brands fa-whatsapp"></i> Solicitar Orçamento
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
