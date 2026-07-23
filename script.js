@@ -68,6 +68,22 @@ const bancoDeProdutos = [
         fotos: [
             "imagens/Yamato/yamato.jpg"
         ]
+    },
+    {
+        id: 9,
+        nome: "Freeza",
+        descricao: "Tamanho total: 44cm  |  Escala: 1:7  |  Valor: R$1.000,00",
+        fotos: [
+            "imagens/Freeza/freeza.jpg"
+        ]
+    },
+    {
+        id: 10,
+        nome: "Gogeta & Janemba",
+        descricao: "Valor promocional: R$2.100,00",
+        fotos: [
+            "imagens/Gogeta&janemba/gogeta&janemba.jpg"
+        ]
     }
 ];
 
